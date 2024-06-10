@@ -108,8 +108,6 @@ Use `make retrieve-aks-credentials` to get the AKS credentials, and prepare the 
 
 Use `make prepare-confluent` to prepare kubernetes for using confluent.
 
-![Prepare confluent img](/screenshots/img_prepare_confluent.png)
-
 ### Deploy the Confluent Kafka environment
 
 Use `make deploy-kafka` to deploy the Confluent Platform Component, and a sample producer app and topic.
@@ -180,7 +178,7 @@ When using Python as a programming language, the [faust library](https://github.
 
 Some important sections from the source:
 
-The faust library should be imprted:
+The faust library should be imported:
 ```
 import faust
 ```
@@ -229,7 +227,7 @@ app is based on faust.App
 app = faust.App('kafkastreams', broker='kafka://kafka:9092')
 ```
 
-topics are based on faust.topic
+topics are based on app.topic
 
 ```
 source_topic = app.topic('expedia', value_type=ExpediaRecord)
@@ -341,7 +339,7 @@ GROUP BY stay_category, hotel_id
 EMIT CHANGES;
 ```
 
-Finally, we are creating another Table, where we aggregate all the data. This table containes per stay category
+Finally, we are creating another Table, where we aggregate all the data. This table containes per stay category:
 * the number of distinct hotel ids
 * the number of all hotels/seaches
 
@@ -370,7 +368,7 @@ While the process is running, the results are always updated with the new record
 ![ksql running img](/screenshots/img_ksqldb_running_1.png)
 
 
-When the process is finished, run the `SELECT * FROM stay_counts EMIT CHANGES;` command again to view the final results.
+When the process is finished, run the `SELECT * FROM stay_counts EMIT CHANGES;` query again to view the final results.
 
 ![ksql running 2 img](/screenshots/img_ksqldb_running_2.png)
 

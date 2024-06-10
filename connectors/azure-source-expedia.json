@@ -1,0 +1,16 @@
+{
+  "name": "azure-source-expedia",
+  "config": {
+    "connector.class": "io.confluent.connect.azure.blob.storage.AzureBlobStorageSourceConnector",
+    "format.class": "io.confluent.connect.cloud.storage.source.format.CloudStorageAvroFormat",
+    "tasks.max": "3",
+    "mode":"GENERIC",
+    "azblob.account.name": "STORAGE_ACCOUNT_PLACEHOLDER",
+    "azblob.account.key": "STORAGE_ACCOUNT_KEY_PLACEHOLDER",
+    "azblob.container.name": "data",
+    "topic": "expedia",
+    "topics.dir": "topics",
+    "topic.regex.list": "expedia:.*"
+
+}
+}
